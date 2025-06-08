@@ -122,9 +122,13 @@ const About: React.FC = () => {
             {/* Profile Image */}
             <div className="absolute inset-2 sm:inset-4 rounded-lg overflow-hidden z-10">
               <img
-                src="/devraj pic.jpg"
+                src="./devraj pic.jpg"
                 alt="Devraj"
                 className="w-full h-full object-cover rounded-lg"
+                onError={(e) => {
+                  console.log('Image failed to load, using fallback');
+                  e.currentTarget.style.display = 'none';
+                }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-dark-900/60 via-transparent to-transparent rounded-lg" />
             </div>
