@@ -64,7 +64,7 @@ function App() {
         {isLoading ? (
           <LoadingScreen key="loading" />
         ) : (
-          <div key="content" className="min-h-screen">
+          <div key="content\" className="min-h-screen">
             <Header />
             <main>
               <Hero />
