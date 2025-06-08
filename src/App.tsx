@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Header from './components/Header';
 import Hero from './components/sections/Hero';
 import About from './components/sections/About';
@@ -17,7 +17,6 @@ import Achievements from './components/sections/Achievements';
 import Extracurricular from './components/sections/Extracurricular';
 
 function App() {
-  const { setCursorVariant } = useMouseContext();
   const [isLoading, setIsLoading] = useState(true);
 
   // Initialize smooth scrolling
@@ -25,7 +24,6 @@ function App() {
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      direction: 'vertical',
       gestureDirection: 'vertical',
       smooth: true,
       mouseMultiplier: 1,
@@ -66,7 +64,7 @@ function App() {
         {isLoading ? (
           <LoadingScreen key="loading" />
         ) : (
-          <div key="content\" className="min-h-screen">
+          <div key="content" className="min-h-screen">
             <Header />
             <main>
               <Hero />

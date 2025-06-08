@@ -4,7 +4,7 @@ import { useInView } from 'react-intersection-observer';
 import SectionWrapper from '../ui/SectionWrapper';
 import SectionMusicPlayer from '../ui/SectionMusicPlayer';
 import { useMouseContext } from '../../context/MouseContext';
-import { GraduationCap, Heart, Code, TrendingUp, Brain, Rocket } from 'lucide-react';
+import { GraduationCap, Code, TrendingUp, Brain, Rocket } from 'lucide-react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Float, Sphere, MeshDistortMaterial } from '@react-three/drei';
 import AnimatedText from '../ui/AnimatedText';
