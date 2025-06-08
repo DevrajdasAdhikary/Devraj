@@ -135,7 +135,10 @@ const About: React.FC = () => {
             
             {/* 3D Background - Only render when in view */}
             {canvasInView && (
-              <Canvas className="absolute inset-0">
+              <Canvas 
+                className="absolute inset-0"
+                gl={{ powerPreference: 'low-power' }}
+              >
                 <ambientLight intensity={0.3} />
                 <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={0.5} />
                 <Float speed={1.5} rotationIntensity={0.4} floatIntensity={1.5}>

@@ -142,7 +142,10 @@ const Skills: React.FC = () => {
             className="relative h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] w-full"
           >
             {canvasInView && (
-              <Canvas camera={{ position: [0, 0, 8], fov: 45 }}>
+              <Canvas 
+                camera={{ position: [0, 0, 8], fov: 45 }}
+                gl={{ powerPreference: 'low-power' }}
+              >
                 <ambientLight intensity={0.6} />
                 <pointLight position={[10, 10, 10]} intensity={1.2} />
                 <SkillsGlobe />
