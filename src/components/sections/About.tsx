@@ -122,7 +122,7 @@ const About: React.FC = () => {
             {/* Profile Image */}
             <div className="absolute inset-2 sm:inset-4 rounded-lg overflow-hidden z-10">
               <img
-                src="./devraj pic.jpg"
+                src="/devraj pic.jpg"
                 alt="Devraj"
                 className="w-full h-full object-cover rounded-lg"
                 onError={(e) => {
@@ -137,7 +137,10 @@ const About: React.FC = () => {
             {canvasInView && (
               <Canvas 
                 className="absolute inset-0"
-                gl={{ powerPreference: 'low-power' }}
+                gl={{ powerPreference: 'low-power', antialias: false }}
+                onCreated={({ gl }) => {
+                  gl.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+                }}
               >
                 <ambientLight intensity={0.3} />
                 <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={0.5} />

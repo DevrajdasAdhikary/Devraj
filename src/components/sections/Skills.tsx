@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
+import { motion, useAnimation, useInView } from 'framer-motion';
+import { useInView as useInViewHook } from 'react-intersection-observer';
 import SectionWrapper from '../ui/SectionWrapper';
 import SectionMusicPlayer from '../ui/SectionMusicPlayer';
 import { useMouseContext } from '../../context/MouseContext';
@@ -13,7 +13,7 @@ const Skills: React.FC = () => {
   const { setCursorVariant, setCursorText } = useMouseContext();
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
   const globeContainerRef = useRef<HTMLDivElement>(null);
-  const { ref: canvasRef, inView: canvasInView } = useInView({
+  const { ref: canvasRef, inView: canvasInView } = useInViewHook({
     threshold: 0.1,
     triggerOnce: false,
   });
@@ -144,7 +144,10 @@ const Skills: React.FC = () => {
             {canvasInView && (
               <Canvas 
                 camera={{ position: [0, 0, 8], fov: 45 }}
-                gl={{ powerPreference: 'low-power' }}
+                gl={{ powerPreference: 'low-power', antialias: false }}
+                onCreated={({ gl }) => {
+                  gl.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+                }}
               >
                 <ambientLight intensity={0.6} />
                 <pointLight position={[10, 10, 10]} intensity={1.2} />

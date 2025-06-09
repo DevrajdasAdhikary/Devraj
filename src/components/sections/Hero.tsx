@@ -60,7 +60,10 @@ const Hero: React.FC = () => {
         {canvasInView && (
           <Canvas 
             camera={{ position: [0, 0, 7], fov: 45 }}
-            gl={{ powerPreference: 'low-power' }}
+            gl={{ powerPreference: 'low-power', antialias: false }}
+            onCreated={({ gl }) => {
+              gl.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            }}
           >
             <ambientLight intensity={0.3} />
             <directionalLight position={[10, 10, 10]} intensity={0.5} />
