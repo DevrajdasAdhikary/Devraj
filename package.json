@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://DevrajdasAdhikary.github.io/devraj-portfolio",
+  "homepage": "https://DevrajdasAdhikary.github.io/Devraj",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
